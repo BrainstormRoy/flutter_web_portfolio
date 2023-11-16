@@ -46,7 +46,7 @@ class _YoutubeTestState extends State<YoutubeTest> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Container(
+        body: SizedBox(
           height: MediaQuery.sizeOf(context).height * 0.5,
           width: MediaQuery.sizeOf(context).width * 0.9,
           child: YoutubePlayer(

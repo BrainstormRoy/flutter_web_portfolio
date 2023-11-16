@@ -1,9 +1,20 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:visiting_webpage/global/theme/theme.dart';
 import 'features/centre_card/home_center.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: const FirebaseOptions(
+      apiKey: "AIzaSyDI32AWTeRdyBTlseF8Vu9N4gVrk7ep2TU",
+      appId: "1:430248180322:web:7ad72ca2ec0ffa6ac56f3b",
+      messagingSenderId: "430248180322",
+      projectId: "tap2x-f7ab7",
+      storageBucket: "tap2x-f7ab7.appspot.com",
+    ),
+  );
   runApp(const MyApp());
 }
 
@@ -45,41 +56,3 @@ class UserDetailsPage extends StatelessWidget {
         );
   }
 }
-
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-
-//   // This widget is the root of your application.
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       title: '',
-//       theme: ThemeData(
-//         useMaterial3: true,
-//         appBarTheme: const AppBarTheme(
-//           backgroundColor: Colors.amber,
-//           // toolbarTextStyle: TextStyle(
-//           //   fontWeight: FontWeight.bold,
-//           // ),
-//         ),
-//         primarySwatch: Colors.red,
-//       ),
-//       home: const HomePage(),
-//       // home: const TestThree(),
-//     );
-//   }
-// }
-/* website gourav today 1 wweek
-amazon stoore creation shalini todau 1 week
-*/
-
-/* 
-ruby
-seo for jvsolutions today 1 month */
-
-
-//sourav sir khalid 
-
-
-// shopfy.us/products/quick-shaver
