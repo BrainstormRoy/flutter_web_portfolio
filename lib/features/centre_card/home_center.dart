@@ -17,18 +17,18 @@ class HomeCenterUi extends StatefulWidget {
 class _HomeCenterUiState extends State<HomeCenterUi> {
   final user = Get.parameters['user'];
 
-  Stream<List<User>> readUsers(String username) => FirebaseFirestore.instance
+  Stream<List<Users>> readUsers(String username) => FirebaseFirestore.instance
       .collection('users')
       .where('userName', isEqualTo: username)
       .snapshots()
       .map((snapshot) =>
-          snapshot.docs.map((doc) => User.fromJson(doc.data())).toList());
+          snapshot.docs.map((doc) => Users.fromJson(doc.data())).toList());
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: StreamBuilder<List<User>>(
+        body: StreamBuilder<List<Users>>(
           stream: readUsers(user!),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
@@ -76,11 +76,27 @@ class _HomeCenterUiState extends State<HomeCenterUi> {
                                   Align(
                                     alignment: Alignment.center,
                                     child: ClipOval(
+                                      // child: Image.network(
+                                      //   user.dpUrl,
+                                      //   width: 140.0,
+                                      //   height: 140.0,
+                                      //   fit: BoxFit.cover,
+                                      // ),
                                       child: Image.network(
-                                        'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                                        'https://firebasestorage.googleapis.com/v0/b/tap2x-f7ab7.appspot.com/o/displayPictures%2Ftap2x_1700649770742.png?alt=media&token=cf55690a-11c9-4a43-b063-add5939a402d',
                                         width: 140.0,
                                         height: 140.0,
                                         fit: BoxFit.cover,
+                                        // errorBuilder: (BuildContext context,
+                                        //     Object exception,
+                                        //     StackTrace? stackTrace) {
+                                        //   print('exc $exception');
+                                        //   print('str $stackTrace');
+                                        //   return const Text(
+                                        //     'Failed to load image',
+                                        //     style: TextStyle(fontSize: 12.0),
+                                        //   );
+                                        // },
                                       ),
                                     ),
                                   ),
@@ -106,6 +122,7 @@ class _HomeCenterUiState extends State<HomeCenterUi> {
                               ),
                             ),
                             const Gap(24.0),
+
                             /* call, work(call), email, whatsapp, twitter */
                             Card(
                               color: Colors.grey.shade300,

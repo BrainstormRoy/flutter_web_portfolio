@@ -1,9 +1,9 @@
-class User {
-  String id;
+class Users {
+  String id, dpUrl;
   final String firstName, lastName, userName, email, twitter, bio;
   final int phone, whatsApp;
 
-  User({
+  Users({
     this.id = '',
     required this.firstName,
     required this.lastName,
@@ -13,6 +13,7 @@ class User {
     required this.whatsApp,
     required this.twitter,
     required this.bio,
+    this.dpUrl = '',
   });
 
   Map<String, dynamic> toJson() {
@@ -26,12 +27,13 @@ class User {
       'whatsApp': whatsApp,
       'twitter': twitter,
       'bio': bio,
+      'dpUrl': dpUrl,
     };
   }
 
   // Static method to create a User object from a Map
-  static User fromJson(Map<String, dynamic> json) {
-    return User(
+  static Users fromJson(Map<String, dynamic> json) {
+    return Users(
       id: json['id'] ?? '',
       firstName: json['firstName'] ?? '',
       lastName: json['lastName'] ?? '',
@@ -41,6 +43,7 @@ class User {
       whatsApp: json['whatsApp'] ?? 0,
       twitter: json['twitter'] ?? '',
       bio: json['bio'] ?? '',
+      dpUrl: json['dpUrl'] ?? '',
     );
   }
 }
